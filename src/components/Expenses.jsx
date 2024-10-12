@@ -11,16 +11,19 @@ export default function Expenses() {
   }, []);
   return (
     <>
-      <div className="d-flex flex-wrap gap-5 p-5">
-        {list.map(({ category, amount, comment }) => (
-          <Card style={{ width: "40%", height: "40%" }}>
+      <div className="d-flex flex-wrap gap-3 p-3">
+        {list.map(({ category, amount, comment }, index) => (
+          <Card
+            className="flex-grow-1"
+            style={{ minWidth: "250px", maxWidth: "400px" }}
+          >
             <CardHeader>
-              <Card.Title>{category}</Card.Title>
+              <Card.Title className="fs-4">{category}</Card.Title>{" "}
             </CardHeader>
-            <Card.Body style={{ width: "40%", height: "40%" }}>
-              Сумма расхода : {amount} ₸
+            <Card.Body>
+              <Card.Text className="fs-5">Сумма расхода: {amount} ₸</Card.Text>
             </Card.Body>
-            <Card.Footer>{comment}</Card.Footer>
+            <Card.Footer className="fs-6">{comment}</Card.Footer>
           </Card>
         ))}
       </div>
